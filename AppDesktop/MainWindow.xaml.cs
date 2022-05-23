@@ -37,8 +37,8 @@ namespace AppDesktop
             //string teamJson = await ApiMethods.Get(uri);
             //string hola = JsonSerializer.Deserialize<string>(teamJson);
 
-            Team team = await ApiConnection.ApiConnection.GetTeamAsync();
-            prueba.Content = team.name;
+            //Team team = await ApiConnection.ApiConnection.GetTeamAsync();
+            //prueba.Content = team.name;
         }
     }
 }

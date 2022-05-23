@@ -11,14 +11,35 @@ namespace AppDesktop.ApiConnection
     public class ApiMethods
     {
         public static readonly HttpClient httpClient = new HttpClient();
+        public string token;
+        private static string URL = "http://localhost:3000/";
+
+        public string Token { get => token; set => token = value; }
 
         public static async Task<string> Get(string uri)
         {
-            //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhOGM3MWI2NDIwNGZhYWEwZjFkNzkiLCJpYXQiOjE2NTI4OTU5MDJ9.rynJzsxgp8wMphIrRykAT-EX_YpGwAwRP49nkRvWtic");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhOGM3MWI2NDIwNGZhYWEwZjFkNzkiLCJpYXQiOjE2NTMzMjU5MjR9.WhWmdFsea2iTBut-vdW0PqsrgYDNKNQu6TrYT3U1ctM");
 
             HttpResponseMessage response = await httpClient.GetAsync(uri);
             return await response.Content.ReadAsStringAsync();
         }
+
+        //public static async Task<string> Post(string uri, object data)
+        //{
+        //    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhOGM3MWI2NDIwNGZhYWEwZjFkNzkiLCJpYXQiOjE2NTMzMjU5MjR9.WhWmdFsea2iTBut-vdW0PqsrgYDNKNQu6TrYT3U1ctM");
+        //    httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        //    StringContent stringContent = new(JsonSerializer.Serialize(data, GetJsonOptions()));
+        //    HttpResponseMessage response = await httpClient.PostAsync(uri, stringContent);
+        //}
+
+        //public static async Task<string> Login(string username, string password)
+        //{
+        //    string uri = URL + "login";
+        //    Authentifier auth = new Authentifier(username, password);
+
+            
+        //}
 
         internal static JsonSerializerOptions GetJsonOptions()
         {

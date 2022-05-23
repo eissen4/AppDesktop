@@ -3,11 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:AppDesktop"
+        
         xmlns:local="clr-namespace:AppDesktop"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="prueba" Content="adios"></Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.RowSpan="2" Margin="6" CornerRadius="10" Background="LightBlue">
+            <uc:MenuPanel/>
+        </Border>
+        <Border  Margin="6" Background="LightBlue" CornerRadius="10" Grid.Column="1" Grid.ColumnSpan="2">
+            
+        </Border>
+        <Border  Margin="6" Background="LightBlue" CornerRadius="10" Grid.Column="1" Grid.Row="1">
+            <uc:MatchesStackPanel></uc:MatchesStackPanel>
+        </Border>
+        <Border  Margin="6" Background="LightBlue" CornerRadius="10" Grid.Column="2" Grid.Row="1"></Border>
+        
 
     </Grid>
 </Window>

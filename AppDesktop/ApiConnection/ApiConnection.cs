@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppDesktop.Entity;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
@@ -10,14 +11,15 @@ namespace AppDesktop.ApiConnection
     {
         public static string URL = "http://localhost:3000";
 
-        //public async Task<string> Login(string username, string password)
-        //{
-        //    string uri = URL + "/login";
+        public async Task<string> Login(string username, string password)
+        {
+            string uri = URL + "/login";
 
-        //    string token = "";
+            string token = "";
+            ApiMethods.
 
-        //    return token;
-        //}
+            return token;
+        }
 
         public static async Task<Team> GetTeamAsync()
         {
@@ -27,6 +29,16 @@ namespace AppDesktop.ApiConnection
 
             Team team = JsonSerializer.Deserialize<Team>(teamJson, ApiMethods.GetJsonOptions());
             return team;
+        }
+
+        public static async Task<List<Match>> GetMatchesAsync()
+        {
+            string uri = URL + "/match/getAllMatchesFromUser";
+
+            string matchJson = await ApiMethods.Get(uri);
+
+            List<Match> matches = JsonSerializer.Deserialize<List<Match>>(matchJson, ApiMethods.GetJsonOptions());
+            return matches;
         }
     }
 }

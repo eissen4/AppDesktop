@@ -7,7 +7,51 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="MenuPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NavBar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MatchesStackPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\ComboBoxMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\LabelButtonMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\LabelMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\MatchItem.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MenuPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NavBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MatchesStackPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\ComboBoxMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\LabelButtonMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\LabelMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\MatchItem.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
