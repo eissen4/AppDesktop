@@ -25,8 +25,23 @@ namespace AppDesktop
         public MainWindow()
         {
             InitializeComponent();
-            Prueba();
-            
+            getTeams();
+            getMatches();
+        }
+
+        private void getMatches()
+        {
+            MatchesStackPanel matchesStackPanel = new MatchesStackPanel(panelTwo);
+            panelOne.Children.Add(matchesStackPanel);
+        }
+
+        private async void getTeams()
+        {
+            List<Team> teams = await ApiConnection.ApiConnection.GetTeamAsync();
+            foreach (Team team in teams )
+            {
+                comboBoxMenu.Items.Add(team.name);
+            } 
         }
 
         public async void Prueba()
@@ -39,6 +54,13 @@ namespace AppDesktop
 
             //Team team = await ApiConnection.ApiConnection.GetTeamAsync();
             //prueba.Content = team.name;
+        }
+
+        private void myExercisePanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            panelOne.Children.Clear();
+            InkCanvas inkCanvas = new InkCanvas();
+            panelOne.Children.Add(inkCanvas);
         }
     }
 }

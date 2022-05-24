@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="InkCanvas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MenuPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -14,6 +17,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MatchesStackPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NewWindows\AddTeam.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\ComboBoxMenu.xaml.cs">
@@ -28,8 +34,14 @@
     <Compile Update="UserControls\MatchItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\OneMatch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="InkCanvas.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -42,6 +54,9 @@
     <Page Update="MatchesStackPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="NewWindows\AddTeam.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControls\ComboBoxMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -52,6 +67,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\MatchItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\OneMatch.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

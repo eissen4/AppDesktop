@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8Mz1ZFohwtYtuccJcPpdbUHJ+meidfQg/tQTtzojcB9CsVT/xr4cZTWlNaV6iAVAYnK+T3cAhmySreUOTtZguA==",
+  "dgSpecHash": "CKaFkLImwKuQekBKeVhHmHMxNqn2VmTsUqIaouixthh0WSZgKoPNNaZf3q7lphH+XJn25K/26G78Qp8Oe8cxgQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\source\\repos\\AppDesktop\\AppDesktop\\AppDesktop.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.23\\microsoft.netcore.app.host.win-x64.3.1.23.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\SMESTRE\\source\\repos\\AppDesktop\\AppDesktop\\AppDesktop.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

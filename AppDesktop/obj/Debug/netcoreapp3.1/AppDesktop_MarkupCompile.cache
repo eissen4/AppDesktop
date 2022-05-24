@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Usuario\source\repos\AppDesktop\AppDesktop\obj\Debug\netcoreapp3.1\
+C:\Users\SMESTRE\source\repos\AppDesktop\AppDesktop\obj\Debug\netcoreapp3.1\
 AppDesktop
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-C:\Users\Usuario\source\repos\AppDesktop\AppDesktop\App.xaml
-8-1728407442
+C:\Users\SMESTRE\source\repos\AppDesktop\AppDesktop\App.xaml
+11-427078152
 
-16-1452122765
+20133972069
 192-1533232326
-MainWindow.xaml;MatchesStackPanel.xaml;MenuPanel.xaml;NavBar.xaml;UserControls\ComboBoxMenu.xaml;UserControls\LabelButtonMenu.xaml;UserControls\LabelMenu.xaml;UserControls\MatchItem.xaml;
+InkCanvas.xaml;MainWindow.xaml;MatchesStackPanel.xaml;MenuPanel.xaml;NavBar.xaml;NewWindows\AddTeam.xaml;UserControls\ComboBoxMenu.xaml;UserControls\LabelButtonMenu.xaml;UserControls\LabelMenu.xaml;UserControls\MatchItem.xaml;UserControls\OneMatch.xaml;
 
-True
+False
 

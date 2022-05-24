@@ -22,5 +22,12 @@ namespace AppDesktop
         {
             InitializeComponent();
         }
+
+        StackPanel panelOne { get; set ; }
+
+        private void myExercise_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+                        
+        }
     }
 }

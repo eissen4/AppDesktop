@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="150">
     <Grid>
-        <StackPanel Orientation="Horizontal" Background="Transparent">
+        <StackPanel Orientation="Horizontal" Background="Transparent" >
             <Image Source="/assets/Icons/team.png" Height="50" Width="50"/>
             <Label Content="MyTeam" VerticalContentAlignment="Center" Margin="10"></Label>
         </StackPanel>

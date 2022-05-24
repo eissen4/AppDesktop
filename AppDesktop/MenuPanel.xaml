@@ -17,21 +17,21 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel>
-            <Image Width="100" Height="100" Margin="10" Source="C:\Users\Usuario\source\repos\AppDesktop\AppDesktop\assets\Images\logoapp.png"/>
+            <Image Width="100" Height="100" Margin="10" Source="/assets/Images/logoapp.png" />
             <uc:LabelMenu x:Name="teamNamelbl"/>
             <uc:ComboBoxMenu x:Name="comboBoxMenu" Margin="10"/>
         </StackPanel>
         <Border Grid.Row="1" CornerRadius="10" Margin="4" Background="LightSeaGreen">
-            <uc:LabelButtonMenu  />
+            <uc:LabelButtonMenu />
         </Border>
         <Border Grid.Row="2" CornerRadius="10" Margin="4" Background="LightSeaGreen">
-            <uc:LabelButtonMenu  />
+            <uc:LabelButtonMenu />
         </Border>
-        <Border Grid.Row="3" CornerRadius="10" Margin="4" Background="LightSeaGreen">
-            <uc:LabelButtonMenu  />
+        <Border x:Name="myExercise" Grid.Row="3" CornerRadius="10" Margin="4" Background="LightSeaGreen" MouseLeftButtonUp="myExercise_MouseLeftButtonUp">
+            <uc:LabelButtonMenu />
         </Border>
         <Border Grid.Row="5" CornerRadius="10" Margin="4" Background="LightSeaGreen">
-            <uc:LabelButtonMenu  />
+            <uc:LabelButtonMenu />
         </Border>
 
     </Grid>
