@@ -23,10 +23,12 @@ namespace AppDesktop
     public partial class MatchesStackPanel : UserControl
     {
         List<Match> matches;
-        public MatchesStackPanel()
+        StackPanel newPanel;
+        public MatchesStackPanel(StackPanel panel)
         {
             InitializeComponent();
             UpdateMatches();
+            newPanel = panel;
         }
 
         private async void UpdateMatches()
@@ -48,11 +50,21 @@ namespace AppDesktop
             {
                 MatchItem matchItem = new MatchItem()
                 {
-                    ResultMatchlbl = match.Opponent + match.scoreOne.ToString(),
-                    Datelbl = match.ScoreTwo.ToString()
+                    ResultMatchlbl = "Resultado: Equipo1" + " " + match.scoreOne.ToString() + " - " + match.ScoreTwo.ToString() + " " + match.opponent.ToString(),
+                    Datelbl = match.ScoreTwo.ToString(),
+                    //Id = match._id.ToString()
+                    Id = match._id.ToString()                 
                 };
+                matchItem.MouseLeftButtonUp += (sender, e) =>MatchItem_MouseLeftButtonUp(sender, e, match.Id.ToString());
                 matchesPanel.Children.Add(matchItem);
             });
+        }
+
+        private async void MatchItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e, string id)
+        {            
+            Label label = new Label();
+            label.Content = id;
+            newPanel.Children.Add(label);
         }
     }
 }
