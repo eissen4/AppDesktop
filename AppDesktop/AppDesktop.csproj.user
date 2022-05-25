@@ -34,6 +34,12 @@
     <Compile Update="UserControls\MatchItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\NewPlayer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\NewTeam.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\OneMatch.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -67,6 +73,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\MatchItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\NewPlayer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\NewTeam.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\OneMatch.xaml">

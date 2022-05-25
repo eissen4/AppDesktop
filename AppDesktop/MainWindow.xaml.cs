@@ -22,16 +22,26 @@ namespace AppDesktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        string selection = "team";
         public MainWindow()
         {
             InitializeComponent();
-            getTeams();
-            getMatches();
+            getToken();
         }
 
-        private void getMatches()
+        private async Task getToken()
         {
-            MatchesStackPanel matchesStackPanel = new MatchesStackPanel(panelTwo);
+            ApiMethods apiMethods = new ApiMethods();
+            string token = await ApiConnection.ApiConnection.Login("1", "1");
+            apiMethods.Token = token;
+            getTeams();
+            NavBar navBar = new NavBar(panelOne, panelTwo, selection);
+            navBarBorder.Child = navBar;
+        }
+
+        private void getMatches(string team)
+        {
+            MatchesStackPanel matchesStackPanel = new MatchesStackPanel(panelTwo, team);
             panelOne.Children.Add(matchesStackPanel);
         }
 
@@ -44,7 +54,7 @@ namespace AppDesktop
             } 
         }
 
-        public async void Prueba()
+        public void Prueba()
         {
             //string URL = "http://localhost:3000";
             //string uri = URL + "/team/";
@@ -61,6 +71,12 @@ namespace AppDesktop
             panelOne.Children.Clear();
             InkCanvas inkCanvas = new InkCanvas();
             panelOne.Children.Add(inkCanvas);
+        }
+
+        private void comboBoxMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show(comboBoxMenu.SelectedItem.ToString());
+            getMatches(comboBoxMenu.SelectedItem.ToString());
         }
     }
 }

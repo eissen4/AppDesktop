@@ -1,9 +1,12 @@
 ﻿namespace AppDesktop.ApiConnection
 {
-    internal class Authentifier
+    public class Authentifier
     {
-        private string username;
-        private string password;
+        public string username { get; set; }
+        public string password { get; set; }
+
+        //public string Username { get => username; set => username = value; }
+        //public string Password { get => password; set => password = value; }
 
         public Authentifier(string username, string password)
         {

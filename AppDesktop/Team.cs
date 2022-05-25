@@ -10,7 +10,7 @@ namespace AppDesktop
         public string name;
         public string user;
 
-        public string Id { get => _id; set => _id = value; }
+        public string _Id { get => _id; set => _id = value; }
         public string Name { get => name; set => name = value; }
         public string User { get => user; set => user = value; }
     }

@@ -74,3 +74,7 @@ C:\Users\SMESTRE\source\repos\AppDesktop\AppDesktop\obj\Debug\netcoreapp3.1\NewW
 C:\Users\SMESTRE\source\repos\AppDesktop\AppDesktop\obj\Debug\netcoreapp3.1\NewWindows\AddTeam.baml
 C:\Users\SMESTRE\source\repos\AppDesktop\AppDesktop\obj\Debug\netcoreapp3.1\UserControls\OneMatch.g.cs
 C:\Users\SMESTRE\source\repos\AppDesktop\AppDesktop\obj\Debug\netcoreapp3.1\UserControls\OneMatch.baml
+C:\Users\SMESTRE\source\repos\AppDesktop\AppDesktop\obj\Debug\netcoreapp3.1\UserControls\NewTeam.g.cs
+C:\Users\SMESTRE\source\repos\AppDesktop\AppDesktop\obj\Debug\netcoreapp3.1\UserControls\NewTeam.baml
+C:\Users\SMESTRE\source\repos\AppDesktop\AppDesktop\obj\Debug\netcoreapp3.1\UserControls\NewPlayer.g.cs
+C:\Users\SMESTRE\source\repos\AppDesktop\AppDesktop\obj\Debug\netcoreapp3.1\UserControls\NewPlayer.baml

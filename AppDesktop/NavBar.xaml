@@ -7,8 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <WrapPanel>
+        <WrapPanel Orientation="Horizontal">
+            <Button x:Name="addBtn" Margin="10" Click="addBtn_Click">+</Button>
+            <Button x:Name="saveBtn" Margin="10" Click="saveBtn_Click" >guardar</Button>
             <Label Content="Salir"></Label>
+            
         </WrapPanel>
             
     </Grid>

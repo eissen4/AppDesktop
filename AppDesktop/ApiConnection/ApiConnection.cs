@@ -11,14 +11,16 @@ namespace AppDesktop.ApiConnection
     {
         public static string URL = "http://localhost:3000";
 
-        //public async Task<string> Login(string username, string password)
-        //{
-        //    string uri = URL + "/login";
+        public static async Task<string> Login(string username, string password)
+        {
+            string uri = URL + "/login";
 
-        //    string token = "";
+            Authentifier authentifier = new Authentifier(username, password);
 
-        //    return token;
-        //}
+            string token = await ApiMethods.PostLogin(authentifier, uri);
+
+            return token;
+        }
 
         public static async Task<List<Team>> GetTeamAsync()
         {
@@ -30,14 +32,27 @@ namespace AppDesktop.ApiConnection
             return team;
         }
 
-        public static async Task<List<Match>> GetMatchesAsync()
+        public static async Task<List<Match>> GetMatchesAsync(string team)
         {
-            string uri = URL + "/match/getAllMatchesFromUser";
+            string uri = URL + "/match/getAllMatchesFromTeam" + team;
 
             string matchJson = await ApiMethods.Get(uri);
 
             List<Match> matches = JsonSerializer.Deserialize<List<Match>>(matchJson, ApiMethods.GetJsonOptions());
             return matches;
+        }
+
+        public static async Task PostTeamAsync(string name)
+        {
+            NewTeamRequest team = new NewTeamRequest(name);
+            string uri = URL + "/team";
+            string response = await ApiMethods.Post(team, uri);
+        }
+
+        public static async void PostPlayerAsync(Player player)
+        {
+            string uri = URL + "/player";
+            string response = await ApiMethods.Post(player, uri);   
         }
     }
 }

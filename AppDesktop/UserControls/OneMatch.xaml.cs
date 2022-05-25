@@ -18,7 +18,7 @@ namespace AppDesktop.UserControls
     /// </summary>
     public partial class OneMatch : UserControl
     {
-        public OneMatch()
+        public OneMatch(string id)
         {
             InitializeComponent();
         }

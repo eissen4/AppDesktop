@@ -24,14 +24,14 @@ namespace AppDesktop
     {
         List<Match> matches;
         StackPanel newPanel;
-        public MatchesStackPanel(StackPanel panel)
+        public MatchesStackPanel(StackPanel panel, string team)
         {
             InitializeComponent();
-            UpdateMatches();
+            UpdateMatches(team);
             newPanel = panel;
         }
 
-        private async void UpdateMatches()
+        private async void UpdateMatches(string team)
         {
             //string URL = "http://localhost:3000";
             //string uri1 = URL + "/team/";
@@ -44,7 +44,7 @@ namespace AppDesktop
             //string uri = URL + "match/getAllMatchesFromUser/";
             //string matchJson = await ApiMethods.Get(uri);
             //matches = JsonSerializer.Deserialize<List<Match>>(matchJson);
-            matches = await ApiConnection.ApiConnection.GetMatchesAsync();
+            matches = await ApiConnection.ApiConnection.GetMatchesAsync(team);
 
             matches.ForEach(match =>
             {
@@ -55,15 +55,16 @@ namespace AppDesktop
                     //Id = match._id.ToString()
                     Id = match._id.ToString()                 
                 };
-                matchItem.MouseLeftButtonUp += (sender, e) =>MatchItem_MouseLeftButtonUp(sender, e, match.Id.ToString());
+                matchItem.MouseLeftButtonUp += (sender, e) => MatchItem_MouseLeftButtonUp(sender, e, match._Id.ToString());
                 matchesPanel.Children.Add(matchItem);
             });
         }
 
-        private async void MatchItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e, string id)
+        private void MatchItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e, string id)
         {            
             Label label = new Label();
             label.Content = id;
+            newPanel.Children.Clear();
             newPanel.Children.Add(label);
         }
     }

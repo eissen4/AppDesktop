@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppDesktop.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,28 @@ namespace AppDesktop
     /// </summary>
     public partial class NavBar : UserControl
     {
-        public NavBar()
+        StackPanel newPanelOne;
+        StackPanel newPanelTwo;
+        public NavBar(StackPanel panelOne, StackPanel panelTwo, string selection)
         {
             InitializeComponent();
+            newPanelOne = panelOne;
+            newPanelTwo = panelTwo;
+        }
+
+        private void addBtn_Click(object sender, RoutedEventArgs e)
+        {
+            newPanelOne.Children.Clear();   
+            NewTeam newTeam = new NewTeam(saveBtn);
+            newPanelOne.Children.Add(newTeam);
+            newPanelTwo.Children.Clear();
+            NewPlayer newPlayer = new NewPlayer();
+            newPanelTwo.Children.Add(newPlayer);
+        }
+
+        private void saveBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -26,13 +26,14 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel>
                 <Image Width="100" Height="100" Margin="10" Source="/assets/Images/logoapp.png" />
                 <Label x:Name="teamNamelbl"/>
-                <ComboBox x:Name="comboBoxMenu" Margin="10"/>
+                <ComboBox x:Name="comboBoxMenu" Margin="10" SelectionChanged="comboBoxMenu_SelectionChanged" />
             </StackPanel>
                 <Border Grid.Row="1" CornerRadius="10" Margin="4" Background="LightSeaGreen">
                     <StackPanel Orientation="Horizontal">
@@ -41,28 +42,37 @@
                         <Label Content="MyTeam"></Label>
                     </StackPanel>
                 </Border>
-            <Border x:Name="myExercisePanel" Grid.Row="2" CornerRadius="10" Margin="4" Background="LightSeaGreen" MouseLeftButtonUp="myExercisePanel_MouseLeftButtonUp">
+            <Border x:Name="myExercisePanel" Grid.Row="3" CornerRadius="10" Margin="4" Background="LightSeaGreen" MouseLeftButtonUp="myExercisePanel_MouseLeftButtonUp">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/assets/Icons/exercise.png" Width="25" Height="25"/>
 
                         <Label Content="MyExercise"></Label>
                     </StackPanel>
                 </Border>
-            <Border x:Name="myExercise" Grid.Row="3" CornerRadius="10" Margin="4" Background="LightSeaGreen">
+            <Border x:Name="myExercise" Grid.Row="2" CornerRadius="10" Margin="4" Background="LightSeaGreen">
+                    <StackPanel Orientation="Horizontal">
+
+                        <Image Source="/assets/Icons/web.jpg" Width="25" Height="25"/>
+
+                        <Label Content="MyMatches"></Label>
+                    </StackPanel>
+
+            </Border>
+                <Border x:Name="myMatches" Grid.Row="4" CornerRadius="10" Margin="4" Background="LightSeaGreen">
                     <StackPanel Orientation="Horizontal">
 
                         <Image Source="/assets/Icons/web.jpg" Width="25" Height="25"/>
 
                         <Label Content="TheWorld"></Label>
                     </StackPanel>
-
-            </Border>
-                <Border Grid.Row="5" CornerRadius="10" Margin="4" Background="LightSeaGreen">
+                </Border>
+                <Border Grid.Row="6" CornerRadius="10" Margin="4" Background="LightSeaGreen">
                     <Label />
                 </Border>
             </Grid>
     </Border>
-        <Border  Margin="6" Background="LightBlue" CornerRadius="10" Grid.Column="1" Grid.ColumnSpan="2">
+        <Border x:Name="navBarBorder" Margin="6" Background="LightBlue" CornerRadius="10" Grid.Column="1" Grid.ColumnSpan="2">
+            
         </Border>
         <Border  Margin="6" Background="LightBlue" CornerRadius="10" Grid.Column="1" Grid.Row="1">
             <StackPanel x:Name="panelOne">
