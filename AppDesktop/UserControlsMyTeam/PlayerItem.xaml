@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="AppDesktop.UserControlsMyTeam.PlayerItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AppDesktop.UserControlsMyTeam"
+             mc:Ignorable="d" 
+             d:DesignHeight="375" d:DesignWidth="300">
+    <Grid>
+        <Border Background="LightGreen">
+        <StackPanel x:Name="playerItemPanel">
+            <Border CornerRadius="10" Width="250" Height="200" Margin="10">
+                <Image x:Name="playerImage" Source="https://electronicssoftware.net/wp-content/uploads/user.png"  ></Image>
+            </Border>
+            <Label x:Name="namePlayerLbl">Nombre:</Label>
+            <Label x:Name="heightPlayerLbl">Estatura:</Label>
+            <Label x:Name="weightPlayerLbl">Peso:</Label>
+                <ListView Margin="10" Name="lvUsers">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Puntos" Width="90"  />
+                            <GridViewColumn Header="Rebotes" Width="92" />
+                            <GridViewColumn Header="Asistencias" Width="92" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</UserControl>

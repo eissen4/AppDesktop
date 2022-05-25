@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AppDesktop.ApiConnection;
+using AppDesktop.UserControls;
 
 namespace AppDesktop
 {
@@ -23,6 +24,7 @@ namespace AppDesktop
     public partial class MainWindow : Window
     {
         string selection = "team";
+        List<Team> teams;
         public MainWindow()
         {
             InitializeComponent();
@@ -47,27 +49,16 @@ namespace AppDesktop
 
         private async void getTeams()
         {
-            List<Team> teams = await ApiConnection.ApiConnection.GetTeamAsync();
+            teams = await ApiConnection.ApiConnection.GetTeamAsync();
             foreach (Team team in teams )
             {
                 comboBoxMenu.Items.Add(team.name);
             } 
         }
 
-        public void Prueba()
-        {
-            //string URL = "http://localhost:3000";
-            //string uri = URL + "/team/";
-
-            //string teamJson = await ApiMethods.Get(uri);
-            //string hola = JsonSerializer.Deserialize<string>(teamJson);
-
-            //Team team = await ApiConnection.ApiConnection.GetTeamAsync();
-            //prueba.Content = team.name;
-        }
-
         private void myExercisePanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            ChangeColorBorder(myExercisePanel);
             panelOne.Children.Clear();
             InkCanvas inkCanvas = new InkCanvas();
             panelOne.Children.Add(inkCanvas);
@@ -75,8 +66,24 @@ namespace AppDesktop
 
         private void comboBoxMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show(comboBoxMenu.SelectedItem.ToString());
-            getMatches(comboBoxMenu.SelectedItem.ToString());
+
+        }
+
+        private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ChangeColorBorder(myTeamPanel);
+            panelOne.Children.Clear();
+            TeamPanel teamPanel = new TeamPanel(teams[comboBoxMenu.SelectedIndex]);
+            panelOne.Children.Add(teamPanel);
+        }
+
+        private void ChangeColorBorder(Border border)
+        {
+            myTeamPanel.Background = Brushes.LightSeaGreen;
+            myExercisePanel.Background = Brushes.LightSeaGreen;
+            myMatchesPanel.Background = Brushes.LightSeaGreen;
+            theWorldPanel.Background = Brushes.LightSeaGreen;
+            border.Background = Brushes.SteelBlue;
         }
     }
 }

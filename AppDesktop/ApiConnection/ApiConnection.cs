@@ -32,6 +32,18 @@ namespace AppDesktop.ApiConnection
             return team;
         }
 
+        public async static Task<List<Player>> GetPlayersAsync(string teamId)
+        {
+            string uri = URL + "/team/getPlayersPerTeam" + teamId;
+
+            string playersJson = await ApiMethods.Get(uri);
+
+            List<Player> players = JsonSerializer.Deserialize<List<Player>>(playersJson, ApiMethods.GetJsonOptions());
+
+            return players;
+
+        }
+
         public static async Task<List<Match>> GetMatchesAsync(string team)
         {
             string uri = URL + "/match/getAllMatchesFromTeam" + team;
