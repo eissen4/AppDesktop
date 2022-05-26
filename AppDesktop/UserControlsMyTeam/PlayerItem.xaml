@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppDesktop.UserControlsMyTeam"
              mc:Ignorable="d" 
-             d:DesignHeight="375" d:DesignWidth="300">
+             d:DesignHeight="200" d:DesignWidth="150">
     <Grid>
         <Border Background="LightGreen">
         <StackPanel x:Name="playerItemPanel">
-            <Border CornerRadius="10" Width="250" Height="200" Margin="10">
+            <Border CornerRadius="10" Width="100" Height="80" Margin="10">
                 <Image x:Name="playerImage" Source="https://electronicssoftware.net/wp-content/uploads/user.png"  ></Image>
             </Border>
             <Label x:Name="namePlayerLbl">Nombre:</Label>
@@ -18,9 +18,9 @@
                 <ListView Margin="10" Name="lvUsers">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Puntos" Width="90"  />
-                            <GridViewColumn Header="Rebotes" Width="92" />
-                            <GridViewColumn Header="Asistencias" Width="92" />
+                            <GridViewColumn Header="Puntos" Width="40" DisplayMemberBinding="{Binding Points}" />
+                            <GridViewColumn Header="Rebotes" Width="40" DisplayMemberBinding="{Binding Rebounds}"/>
+                            <GridViewColumn Header="Asistencias" Width="40" DisplayMemberBinding="{Binding Assists}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

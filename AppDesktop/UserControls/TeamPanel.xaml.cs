@@ -20,22 +20,26 @@ namespace AppDesktop.UserControls
     /// </summary>
     public partial class TeamPanel : UserControl
     {
-        Team newTeam;
         List<Player> players;
-        public TeamPanel(Team team)
+        public TeamPanel()
         {
             InitializeComponent();
-            newTeam = team;
-            teamLbl.Content = team.name;
-            GetPlayers(team);
+            teamLbl.Content = Selection.teamSelected.Name;
+            GetPlayers();
         }
 
-        private async void GetPlayers(Team team)
+        private async void GetPlayers()
         {
-            players = await ApiConnection.ApiConnection.GetPlayersAsync(team._id);
+            players = await ApiConnection.ApiConnection.GetPlayersAsync(Selection.teamSelected._id);
             foreach(Player player in players)
             {
-                PlayerItem playerItem = new PlayerItem();
+                PlayerItem playerItem = new PlayerItem()
+                {
+                    NamePlayerLbl = "Nombre: " + player.name.ToString(),
+                    HeightPlayerLbl = "Altura: " + player.height.ToString(),
+                    WeightPlayerLbl = "Peso: " + player.weight.ToString()
+                };
+                playerPanel.Children.Add(playerItem);
             }
         }
     }

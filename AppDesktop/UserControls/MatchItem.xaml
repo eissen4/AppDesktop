@@ -8,13 +8,15 @@
              d:DesignHeight="100" d:DesignWidth="400">
     <Grid>
         <Border Background="LightSeaGreen" Margin="4" CornerRadius="5">
-            <WrapPanel Orientation="Horizontal">
-                <Label Content="Resultado: Equipo1 54 - 45 Equipo2" x:Name="resultlbl"></Label>
+            <WrapPanel Orientation="Vertical">
+                <WrapPanel Orientation="Horizontal">
+                    <Label Content="Resultado: Equipo1 54 - 45 Equipo2" x:Name="resultlbl"></Label>
+                    <Label Content="X" x:Name="deleteMatchlbl"></Label>
+                    <Label x:Name="idlbl" Visibility="Hidden"></Label>
+                </WrapPanel>
                 <Label Content="Día = 28/01/2022" x:Name="datelbl"></Label>
-                <Label Content="X" x:Name="deleteMatchlbl"></Label>
-                <Label x:Name="idlbl" Visibility="Hidden"></Label>
-
             </WrapPanel>
+            
         </Border>
         
             

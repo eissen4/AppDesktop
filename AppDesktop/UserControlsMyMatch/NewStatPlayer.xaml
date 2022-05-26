@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="AppDesktop.UserControlsMyMatch.NewStatPlayer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AppDesktop.UserControlsMyMatch"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel>
+            <Label>Jugador:</Label>
+            <ComboBox x:Name="playerStatPlayerCmb"></ComboBox>
+            <Label>Partido:</Label>
+            <ComboBox x:Name="matchStatPlayerCmb"></ComboBox>
+            <Label>Puntos:</Label>
+            <TextBox x:Name="pointsTxt"></TextBox>
+            <Label>Rebotes:</Label>
+            <TextBox x:Name="reboundsTxt"></TextBox>
+            <Label>Asistencias:</Label>
+            <TextBox x:Name="assistsTxt"></TextBox>
+            <Button x:Name="saveBtn">Guardar</Button>
+        </StackPanel>            
+    </Grid>
+</UserControl>

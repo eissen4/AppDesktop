@@ -23,15 +23,17 @@ namespace AppDesktop
     public partial class MatchesStackPanel : UserControl
     {
         List<Match> matches;
-        StackPanel newPanel;
-        public MatchesStackPanel(StackPanel panel, string team)
+        StackPanel newPanelOne;
+        StackPanel newPanelTwo;
+        public MatchesStackPanel(StackPanel panelOne, StackPanel panelTwo)
         {
             InitializeComponent();
-            UpdateMatches(team);
-            newPanel = panel;
+            UpdateMatches();
+            newPanelOne = panelOne;
+            newPanelTwo = panelTwo; 
         }
 
-        private async void UpdateMatches(string team)
+        private async void UpdateMatches()
         {
             //string URL = "http://localhost:3000";
             //string uri1 = URL + "/team/";
@@ -44,19 +46,20 @@ namespace AppDesktop
             //string uri = URL + "match/getAllMatchesFromUser/";
             //string matchJson = await ApiMethods.Get(uri);
             //matches = JsonSerializer.Deserialize<List<Match>>(matchJson);
-            matches = await ApiConnection.ApiConnection.GetMatchesAsync(team);
+            matches = await ApiConnection.ApiConnection.GetMatchesAsync(Selection.teamSelected._id);
+            
 
             matches.ForEach(match =>
             {
                 MatchItem matchItem = new MatchItem()
                 {
                     ResultMatchlbl = "Resultado: Equipo1" + " " + match.scoreOne.ToString() + " - " + match.ScoreTwo.ToString() + " " + match.opponent.ToString(),
-                    Datelbl = match.ScoreTwo.ToString(),
+                    Datelbl = match.Date.ToString(),
                     //Id = match._id.ToString()
                     Id = match._id.ToString()                 
                 };
                 matchItem.MouseLeftButtonUp += (sender, e) => MatchItem_MouseLeftButtonUp(sender, e, match._Id.ToString());
-                matchesPanel.Children.Add(matchItem);
+                newPanelOne.Children.Add(matchItem);
             });
         }
 
@@ -64,8 +67,8 @@ namespace AppDesktop
         {            
             Label label = new Label();
             label.Content = id;
-            newPanel.Children.Clear();
-            newPanel.Children.Add(label);
+            newPanelTwo.Children.Clear();
+            newPanelTwo.Children.Add(label);
         }
     }
 }

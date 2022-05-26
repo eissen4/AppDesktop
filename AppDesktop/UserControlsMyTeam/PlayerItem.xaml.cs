@@ -21,7 +21,19 @@ namespace AppDesktop.UserControlsMyTeam
         public PlayerItem()
         {
             InitializeComponent();
-            
         }
+
+        public string NamePlayerLbl { set => namePlayerLbl.Content = value; get => namePlayerLbl.Content.ToString(); }
+        public string HeightPlayerLbl { set => heightPlayerLbl.Content = value; get => heightPlayerLbl.Content.ToString(); }
+        public string WeightPlayerLbl { set => weightPlayerLbl.Content = value; get => weightPlayerLbl.Content.ToString(); }
+
+    }
+    public class StatsPlayer
+    {
+        public int Points { get; set; }
+        public int Rebounds { get; set; }
+        public int Assists { get; set; }
     }
 }
+
+

@@ -23,7 +23,6 @@ namespace AppDesktop
     /// </summary>
     public partial class MainWindow : Window
     {
-        string selection = "team";
         List<Team> teams;
         public MainWindow()
         {
@@ -37,23 +36,24 @@ namespace AppDesktop
             string token = await ApiConnection.ApiConnection.Login("1", "1");
             apiMethods.Token = token;
             getTeams();
-            NavBar navBar = new NavBar(panelOne, panelTwo, selection);
-            navBarBorder.Child = navBar;
         }
 
-        private void getMatches(string team)
+        private void getMatches()
         {
-            MatchesStackPanel matchesStackPanel = new MatchesStackPanel(panelTwo, team);
+            MatchesStackPanel matchesStackPanel = new MatchesStackPanel(panelOne,panelTwo);
             panelOne.Children.Add(matchesStackPanel);
         }
 
         private async void getTeams()
         {
             teams = await ApiConnection.ApiConnection.GetTeamAsync();
-            foreach (Team team in teams )
+            foreach (Team team in teams)
             {
                 comboBoxMenu.Items.Add(team.name);
-            } 
+            }
+            comboBoxMenu.SelectedIndex = 0;
+            NavBar navBar = new NavBar(panelOne, panelTwo);
+            navBarBorder.Child = navBar;
         }
 
         private void myExercisePanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -66,14 +66,15 @@ namespace AppDesktop
 
         private void comboBoxMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Selection.teamSelected = teams[comboBoxMenu.SelectedIndex];
         }
 
         private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Selection.selection = 1;
             ChangeColorBorder(myTeamPanel);
             panelOne.Children.Clear();
-            TeamPanel teamPanel = new TeamPanel(teams[comboBoxMenu.SelectedIndex]);
+            TeamPanel teamPanel = new TeamPanel();
             panelOne.Children.Add(teamPanel);
         }
 
@@ -85,5 +86,19 @@ namespace AppDesktop
             theWorldPanel.Background = Brushes.LightSeaGreen;
             border.Background = Brushes.SteelBlue;
         }
+
+        private void myMatchesPanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Selection.selection = 2;
+            ChangeColorBorder(myMatchesPanel);
+            getMatches();
+            panelOne.Children.Clear();
+        }
+    }
+    public class Selection
+    {
+        public static int selection { get; set; }
+        public static Team teamSelected { get; set; }
     }
 }
+

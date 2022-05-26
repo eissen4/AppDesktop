@@ -1,4 +1,5 @@
 ﻿using AppDesktop.UserControls;
+using AppDesktop.UserControlsMyMatch;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,7 +22,7 @@ namespace AppDesktop
     {
         StackPanel newPanelOne;
         StackPanel newPanelTwo;
-        public NavBar(StackPanel panelOne, StackPanel panelTwo, string selection)
+        public NavBar(StackPanel panelOne, StackPanel panelTwo)
         {
             InitializeComponent();
             newPanelOne = panelOne;
@@ -30,7 +31,29 @@ namespace AppDesktop
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            newPanelOne.Children.Clear();   
+            if (Selection.selection == 1) AddPanelNewTeam();
+            if (Selection.selection == 2) AddPanelNewMatch();
+            if (Selection.selection == 3) AddPanelNewExercise();         
+        }
+
+        private void AddPanelNewExercise()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AddPanelNewMatch()
+        {
+            newPanelOne.Children.Clear();
+            NewMatch newMatch = new NewMatch();
+            newPanelOne.Children.Add(newMatch);
+            newPanelTwo.Children.Clear();   
+            NewStatPlayer newStatPlayer = new NewStatPlayer();  
+            newPanelTwo.Children.Add(newStatPlayer);
+        }
+
+        private void AddPanelNewTeam()
+        {
+            newPanelOne.Children.Clear();
             NewTeam newTeam = new NewTeam(saveBtn);
             newPanelOne.Children.Add(newTeam);
             newPanelTwo.Children.Clear();

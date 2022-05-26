@@ -32,9 +32,20 @@ namespace AppDesktop.ApiConnection
             return team;
         }
 
+        public static async Task<List<Match>> GetPlayerMatchesAsync(string playerId)
+        {
+            string uri = URL + "/player/getAllMatchesFromPlayer/" + playerId;
+
+            string playerMatchesJson = await ApiMethods.Get(uri);
+
+            List<Match> playerMatches = JsonSerializer.Deserialize<List<Match>>(playerMatchesJson, ApiMethods.GetJsonOptions());
+
+            return playerMatches;
+        }
+
         public async static Task<List<Player>> GetPlayersAsync(string teamId)
         {
-            string uri = URL + "/team/getPlayersPerTeam" + teamId;
+            string uri = URL + "/team/getPlayersPerTeam/" + teamId;
 
             string playersJson = await ApiMethods.Get(uri);
 
@@ -46,11 +57,13 @@ namespace AppDesktop.ApiConnection
 
         public static async Task<List<Match>> GetMatchesAsync(string team)
         {
-            string uri = URL + "/match/getAllMatchesFromTeam" + team;
+            string uri = URL + "/match/getAllMatchesFromTeam/" + team;
+            //string uri = URL + "/match";
 
             string matchJson = await ApiMethods.Get(uri);
 
             List<Match> matches = JsonSerializer.Deserialize<List<Match>>(matchJson, ApiMethods.GetJsonOptions());
+
             return matches;
         }
 
@@ -64,7 +77,15 @@ namespace AppDesktop.ApiConnection
         public static async void PostPlayerAsync(Player player)
         {
             string uri = URL + "/player";
+
             string response = await ApiMethods.Post(player, uri);   
+        }
+
+        public static async void PostMatchAsync(Match newMatch)
+        {
+            string uri = URL + "/match";
+
+            string response = await ApiMethods.Post(newMatch, uri);
         }
     }
 }

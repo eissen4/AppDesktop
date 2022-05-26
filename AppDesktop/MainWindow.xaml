@@ -42,7 +42,7 @@
                         <Label Content="MyTeam"></Label>
                     </StackPanel>
                 </Border>
-                <Border x:Name="myMatchesPanel" Grid.Row="2" CornerRadius="10" Margin="4" Background="LightSeaGreen">
+                <Border x:Name="myMatchesPanel" Grid.Row="2" CornerRadius="10" Margin="4" Background="LightSeaGreen" MouseLeftButtonUp="myMatchesPanel_MouseLeftButtonUp">
                     <StackPanel Orientation="Horizontal">
 
                         <Image Source="/assets/Icons/web.jpg" Width="25" Height="25"/>

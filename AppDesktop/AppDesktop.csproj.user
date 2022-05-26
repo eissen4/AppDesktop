@@ -22,6 +22,12 @@
     <Compile Update="NewWindows\AddTeam.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlsMyMatch\NewMatch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlsMyMatch\NewStatPlayer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControlsMyTeam\PlayerItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -67,6 +73,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="NewWindows\AddTeam.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlsMyMatch\NewMatch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlsMyMatch\NewStatPlayer.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlsMyTeam\PlayerItem.xaml">
