@@ -81,6 +81,13 @@ namespace AppDesktop.ApiConnection
             string response = await ApiMethods.Post(player, uri);   
         }
 
+        public static async Task PostStatPlayerAsync(StatPlayer statPlayer)
+        {
+            string uri = URL + "/statPlayerMatch";
+
+            string response = await ApiMethods.Post(statPlayer, uri);
+        }
+
         public static async void PostMatchAsync(Match newMatch)
         {
             string uri = URL + "/match";

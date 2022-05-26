@@ -7,6 +7,7 @@ namespace AppDesktop.Entity
     public class StatPlayer
     {
         public string _id { get; set; }
+        public string player { get; set; }
         public string team { get; set; }
         public string match { get; set; }
         public string opponent { get; set; }

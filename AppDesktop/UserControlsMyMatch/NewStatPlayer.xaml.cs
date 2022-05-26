@@ -20,21 +20,53 @@ namespace AppDesktop.UserControlsMyMatch
     /// </summary>
     public partial class NewStatPlayer : UserControl
     {
+        List<Match> matches;
+        List<Player> players;
         public NewStatPlayer()
         {
-            getData(); 
+            getDataPlayers(); 
             InitializeComponent();
         }
 
-        private async Task getData()
+        private async Task getDataPlayers()
         {
-            List<Player> = await ApiConnection.ApiConnection.GetPlayersAsync(Selection.teamSelected._id);
-
+            //List<Player> players;
+            //List<Match> matches;
+            //var tasks = new List<Task>()
+            //{
+            //    players = ApiConnection.ApiConnection.GetPlayersAsync(Selection.teamSelected._id),
+            //    matches = ApiConnection.ApiConnection.GetMatchesAsync(Selection.teamSelected._id)
+            //};
+            //await Task.WhenAll(tasks);
+            players = await ApiConnection.ApiConnection.GetPlayersAsync(Selection.teamSelected._id);
+            matches = await ApiConnection.ApiConnection.GetMatchesAsync(Selection.teamSelected._id);
+            
+            foreach (Player player in players)
+            {
+                playerStatPlayerCmb.Items.Add(player.Name);
+            }
+            playerStatPlayerCmb.SelectedIndex = 0;
+            foreach (Match match in matches)
+            {
+                matchStatPlayerCmb.Items.Add(match.Opponent + " " + match.date.ToString());
+            }
+            matchStatPlayerCmb.SelectedIndex = 0;
         }
 
-        private async Task getPlayerMatches()
+        private async void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            await ApiConnection.ApiConnection.GetPlayerMatchesAsync();
+            StatPlayer statPlayer = new StatPlayer()
+            {
+                team = Selection.teamSelected._id,
+                player = players[playerStatPlayerCmb.SelectedIndex]._id,
+                match = matches[matchStatPlayerCmb.SelectedIndex]._id,
+                opponent = matches[matchStatPlayerCmb.SelectedIndex].opponent,
+                date = matches[matchStatPlayerCmb.SelectedIndex].date, 
+                points = Int32.Parse(pointsTxt.Text),
+                rebounds = Int32.Parse(reboundsTxt.Text),
+                assists = Int32.Parse(assistsTxt.Text)
+            };
+            await ApiConnection.ApiConnection.PostStatPlayerAsync(statPlayer);
         }
     }
 }

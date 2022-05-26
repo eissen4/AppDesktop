@@ -18,7 +18,7 @@
             <TextBox x:Name="reboundsTxt"></TextBox>
             <Label>Asistencias:</Label>
             <TextBox x:Name="assistsTxt"></TextBox>
-            <Button x:Name="saveBtn">Guardar</Button>
+            <Button x:Name="saveBtn" Click="saveBtn_Click">Guardar</Button>
         </StackPanel>            
     </Grid>
 </UserControl>
