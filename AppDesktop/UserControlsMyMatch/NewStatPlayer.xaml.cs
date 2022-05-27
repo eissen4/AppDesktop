@@ -59,6 +59,7 @@ namespace AppDesktop.UserControlsMyMatch
             {
                 team = Selection.teamSelected._id,
                 player = players[playerStatPlayerCmb.SelectedIndex]._id,
+                playerName = players[playerStatPlayerCmb.SelectedIndex].name,
                 match = matches[matchStatPlayerCmb.SelectedIndex]._id,
                 opponent = matches[matchStatPlayerCmb.SelectedIndex].opponent,
                 date = matches[matchStatPlayerCmb.SelectedIndex].date, 

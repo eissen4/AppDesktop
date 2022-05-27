@@ -11,18 +11,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AppDesktop.UserControls
+namespace AppDesktop.UserControlsMyTeam
 {
     /// <summary>
-    /// Lógica de interacción para Match.xaml
+    /// Lógica de interacción para PlayerMyTeamItem.xaml
     /// </summary>
-    public partial class MatchItem : UserControl
+    public partial class PlayerMyTeamItem : UserControl
     {
-        public MatchItem()
+        public PlayerMyTeamItem()
         {
             InitializeComponent();
         }
         public string ResultMatchlbl { set => resultlbl.Content = value; get => resultlbl.Content.ToString(); }
         public string Datelbl { set => datelbl.Content = value; get => datelbl.Content.ToString(); }
+        public string PointsLbl { set => pointsLbl.Content = value; get => pointsLbl.Content.ToString(); }
+        public string ReboundsLbl { set => reboundsLbl.Content = value; get => reboundsLbl.Content.ToString(); }
+        public string AssistsLbl { set => assistsLbl.Content = value; get => assistsLbl.Content.ToString(); }
     }
 }

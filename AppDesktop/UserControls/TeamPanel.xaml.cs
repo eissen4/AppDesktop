@@ -21,8 +21,10 @@ namespace AppDesktop.UserControls
     public partial class TeamPanel : UserControl
     {
         List<Player> players;
-        public TeamPanel()
+        StackPanel newPanelTwo;
+        public TeamPanel(StackPanel panelTwo)
         {
+            newPanelTwo = panelTwo;
             InitializeComponent();
             teamLbl.Content = Selection.teamSelected.Name;
             GetPlayers();
@@ -39,7 +41,27 @@ namespace AppDesktop.UserControls
                     HeightPlayerLbl = "Altura: " + player.height.ToString(),
                     WeightPlayerLbl = "Peso: " + player.weight.ToString()
                 };
+                playerItem.MouseLeftButtonUp += (sender, e) => PlayerItem_MouseLeftButtonUp(sender, e, player._Id.ToString());
                 playerPanel.Children.Add(playerItem);
+            }
+        }
+
+        private async void PlayerItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e, string playerId)
+        {
+            newPanelTwo.Children.Clear();
+            List<StatPlayer> statPlayers = new List<StatPlayer>();
+            statPlayers = await ApiConnection.ApiConnection.GetPlayersStatsAsync(playerId);
+            foreach (StatPlayer player in statPlayers)
+            {
+                PlayerMyTeamItem item = new PlayerMyTeamItem()
+                {
+                    ResultMatchlbl = player.opponent,
+                    Datelbl = player.date.ToString(),
+                    PointsLbl ="Puntos: " + player.points.ToString(),
+                    ReboundsLbl ="Rebotes: " + player.rebounds.ToString(),
+                    AssistsLbl ="Asistencias: " + player.assists.ToString()
+                };
+                newPanelTwo.Children.Add(item);
             }
         }
     }

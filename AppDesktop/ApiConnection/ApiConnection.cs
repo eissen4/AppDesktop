@@ -32,6 +32,17 @@ namespace AppDesktop.ApiConnection
             return team;
         }
 
+        internal static async Task<List<StatPlayer>> GetStatsMatchAsync(string matchId)
+        {
+            string uri = URL + "/statPlayerMatch/getAllStatsFromMatch/" + matchId;
+
+            string statsJson = await ApiMethods.Get(uri);
+
+            List<StatPlayer> stats = JsonSerializer.Deserialize<List<StatPlayer>>(statsJson, ApiMethods.GetJsonOptions());
+
+            return stats;
+        }
+
         public static async Task<List<Match>> GetPlayerMatchesAsync(string playerId)
         {
             string uri = URL + "/player/getAllMatchesFromPlayer/" + playerId;
@@ -52,7 +63,17 @@ namespace AppDesktop.ApiConnection
             List<Player> players = JsonSerializer.Deserialize<List<Player>>(playersJson, ApiMethods.GetJsonOptions());
 
             return players;
+        }
 
+        public async static Task<List<StatPlayer>> GetPlayersStatsAsync(string playerId)
+        {
+            string uri = URL + "/statPlayerMatch/getAllStatsFromPlayer/" + playerId;
+
+            string playerStatsJson = await ApiMethods.Get(uri);
+
+            List<StatPlayer> playerStats = JsonSerializer.Deserialize<List<StatPlayer>>(playerStatsJson, ApiMethods.GetJsonOptions());
+
+            return playerStats;
         }
 
         public static async Task<List<Match>> GetMatchesAsync(string team)

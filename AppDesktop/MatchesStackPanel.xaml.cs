@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using AppDesktop.ApiConnection;
 using AppDesktop.Entity;
 using AppDesktop.UserControls;
+using AppDesktop.UserControlsMyMatch;
 
 namespace AppDesktop
 {
@@ -54,9 +55,7 @@ namespace AppDesktop
                 MatchItem matchItem = new MatchItem()
                 {
                     ResultMatchlbl = "Resultado: Equipo1" + " " + match.scoreOne.ToString() + " - " + match.ScoreTwo.ToString() + " " + match.opponent.ToString(),
-                    Datelbl = match.Date.ToString(),
-                    //Id = match._id.ToString()
-                    Id = match._id.ToString()                 
+                    Datelbl = match.Date.ToString()                
                 };
                 matchItem.MouseLeftButtonUp += (sender, e) => MatchItem_MouseLeftButtonUp(sender, e, match._Id.ToString());
                 newPanelOne.Children.Add(matchItem);
@@ -65,10 +64,9 @@ namespace AppDesktop
 
         private void MatchItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e, string id)
         {            
-            Label label = new Label();
-            label.Content = id;
+            StatMatch statMatch = new StatMatch(id);
             newPanelTwo.Children.Clear();
-            newPanelTwo.Children.Add(label);
+            newPanelTwo.Children.Add(statMatch);
         }
     }
 }

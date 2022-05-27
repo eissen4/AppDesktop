@@ -7,9 +7,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="InkCanvas.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="MenuPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,7 +25,13 @@
     <Compile Update="UserControlsMyMatch\NewStatPlayer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlsMyMatch\StatMatch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControlsMyTeam\PlayerItem.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlsMyTeam\PlayerMyTeamItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\ComboBoxMenu.xaml.cs">
@@ -55,11 +58,11 @@
     <Compile Update="UserControls\TeamPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UsersControloMyExercise\NewExercise.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="InkCanvas.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -81,7 +84,13 @@
     <Page Update="UserControlsMyMatch\NewStatPlayer.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UserControlsMyMatch\StatMatch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControlsMyTeam\PlayerItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlsMyTeam\PlayerMyTeamItem.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\ComboBoxMenu.xaml">
@@ -106,6 +115,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\TeamPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UsersControloMyExercise\NewExercise.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

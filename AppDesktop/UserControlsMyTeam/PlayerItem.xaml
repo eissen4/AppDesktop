@@ -15,7 +15,7 @@
             <Label x:Name="namePlayerLbl">Nombre:</Label>
             <Label x:Name="heightPlayerLbl">Estatura:</Label>
             <Label x:Name="weightPlayerLbl">Peso:</Label>
-                <ListView Margin="10" Name="lvUsers">
+                <ListView Margin="10" Name="playerLst">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Puntos" Width="40" DisplayMemberBinding="{Binding Points}" />

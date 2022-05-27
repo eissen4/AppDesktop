@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AppDesktop.ApiConnection;
 using AppDesktop.UserControls;
+using AppDesktop.UsersControloMyExercise;
 
 namespace AppDesktop
 {
@@ -60,8 +61,8 @@ namespace AppDesktop
         {
             ChangeColorBorder(myExercisePanel);
             panelOne.Children.Clear();
-            InkCanvas inkCanvas = new InkCanvas();
-            panelOne.Children.Add(inkCanvas);
+            NewExercise newExercise = new NewExercise();
+            panelOne.Children.Add(newExercise);
         }
 
         private void comboBoxMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -74,7 +75,7 @@ namespace AppDesktop
             Selection.selection = 1;
             ChangeColorBorder(myTeamPanel);
             panelOne.Children.Clear();
-            TeamPanel teamPanel = new TeamPanel();
+            TeamPanel teamPanel = new TeamPanel(panelTwo);
             panelOne.Children.Add(teamPanel);
         }
 
@@ -85,6 +86,8 @@ namespace AppDesktop
             myMatchesPanel.Background = Brushes.LightSeaGreen;
             theWorldPanel.Background = Brushes.LightSeaGreen;
             border.Background = Brushes.SteelBlue;
+            panelOne.Children.Clear();
+            panelTwo.Children.Clear();
         }
 
         private void myMatchesPanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
