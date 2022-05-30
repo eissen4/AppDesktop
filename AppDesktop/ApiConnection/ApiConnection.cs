@@ -54,6 +54,8 @@ namespace AppDesktop.ApiConnection
             return playerMatches;
         }
 
+        
+
         public async static Task<List<Player>> GetPlayersAsync(string teamId)
         {
             string uri = URL + "/team/getPlayersPerTeam/" + teamId;
@@ -114,6 +116,10 @@ namespace AppDesktop.ApiConnection
             string uri = URL + "/match";
 
             string response = await ApiMethods.Post(newMatch, uri);
+        }
+        public static async Task PostImage()
+        {
+            await ApiMethods.PostImage();
         }
     }
 }

@@ -7,6 +7,35 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\Icons\eraser.png" />
+    <None Remove="assets\Icons\exercise.png" />
+    <None Remove="assets\Icons\save.png" />
+    <None Remove="assets\Icons\team.png" />
+    <None Remove="assets\Icons\web.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\Icons\exercise.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\Icons\eraser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\Icons\save.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\Icons\team.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\Icons\web.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 

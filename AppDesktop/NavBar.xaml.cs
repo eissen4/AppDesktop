@@ -1,5 +1,6 @@
 ﻿using AppDesktop.UserControls;
 using AppDesktop.UserControlsMyMatch;
+using AppDesktop.UsersControloMyExercise;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,7 +39,10 @@ namespace AppDesktop
 
         private void AddPanelNewExercise()
         {
-            throw new NotImplementedException();
+            newPanelOne.Children.Clear();
+            NewExercise newExercise = new NewExercise();
+            newPanelOne.Children.Add(newExercise);
+            newPanelTwo.Children.Clear();
         }
 
         private void AddPanelNewMatch()

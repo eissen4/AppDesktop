@@ -5,17 +5,62 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppDesktop.UsersControloMyExercise"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="350">
+             d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="11*"></RowDefinition>
             <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid.Background>
-            <ImageBrush ImageSource="https://as1.ftcdn.net/v2/jpg/04/14/41/52/1000_F_414415250_SSetMKFnyxAtHmfAyYcuI4xrhN6915gJ.jpg"></ImageBrush>
-        </Grid.Background>
-        <InkCanvas x:Name="exerciseInk" Background="Transparent">
-        </InkCanvas>
-        <Button x:Name="saveExercise" Grid.Row="1" Click="saveExercise_Click">Guardar</Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="gridInk" Grid.Row="0">
+            <Grid.Background>
+                <ImageBrush ImageSource="https://as1.ftcdn.net/v2/jpg/04/14/41/52/1000_F_414415250_SSetMKFnyxAtHmfAyYcuI4xrhN6915gJ.jpg"></ImageBrush>
+            </Grid.Background>
+            <StackPanel x:Name="inkStck" Background="Transparent">
+                <InkCanvas x:Name="exerciseInk" Background="Transparent"></InkCanvas>
+            </StackPanel>
+        </Grid>
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border CornerRadius="10" Background="DarkGray" Width="35" Height="35">
+                <Image x:Name="saveIcon" Source="/assets/Icons/save.png" Width="30" Height="30" MouseLeftButtonUp="SaveIcon_MouseLeftButtonUp"/>
+            </Border>
+            <Border x:Name="eraseBrd" CornerRadius="10" Background="DarkGray" Width="35" Height="35">
+                <Image x:Name="eraseIcon" Source="/assets/Icons/eraser.png" Width="30" Height="30" MouseLeftButtonUp="EraseIcon_MouseLeftButtonUp"/>
+            </Border>
+            <Border CornerRadius="10" Background="DarkGray">
+                <StackPanel Orientation="Horizontal" x:Name="colorsStck">
+                    <Border x:Name="whiteSelectionBrd" Width="25" Height="25" CornerRadius="10" Background="white">
+                        <Border x:Name="blackSelectionBrd" CornerRadius="10" Background="Black" Width="20" Height="20" Margin="2" MouseLeftButtonUp="blackInkLbl_MouseLeftButtonUp">
+                            <Label x:Name="blackInkLbl" Background="Transparent"  Margin="2"></Label>
+                        </Border>
+                    </Border>
+                    
+                    <Border x:Name="redSelectionBrd" CornerRadius="10" Background="Red" Width="20" Height="20" Margin="2">
+                        <Label x:Name="redInkLbl" Background="Transparent" Width="20" Height="20" Margin="2" MouseLeftButtonUp="redInkLbl_MouseLeftButtonUp"></Label>
+                    </Border>
+                    <Border x:Name="blueSelectionBrd" CornerRadius="10" Background="Blue" Width="20" Height="20" Margin="2" MouseLeftButtonUp="blueInkLbl_MouseLeftButtonUp">
+                        <Label x:Name="blueInkLbl" Background="Transparent" Width="20" Height="20" Margin="2"></Label>
+                    </Border>
+                    <Border x:Name="yellowSelectionBrd" CornerRadius="10" Background="Yellow" Width="20" Height="20" Margin="2" MouseLeftButtonUp="yellowInkLbl_MouseLeftButtonUp">
+                        <Label x:Name="yellowInkLbl" Background="Transparent" Width="20" Height="20" Margin="2"></Label>
+                    </Border>
+                </StackPanel>
+            </Border>
+        </WrapPanel>
+        <StackPanel Grid.Column="1">
+            <Label>Nombre del ejercicio</Label>
+            <TextBox></TextBox>
+            <Label>Descripción</Label>
+            <TextBox
+  Name="tbMultiLine"
+  TextWrapping="Wrap"
+  AcceptsReturn="True"
+  VerticalScrollBarVisibility="Visible"
+>
+            </TextBox>
+        </StackPanel>        
     </Grid>
 </UserControl>

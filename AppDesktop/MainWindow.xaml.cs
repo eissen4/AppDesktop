@@ -59,10 +59,8 @@ namespace AppDesktop
 
         private void myExercisePanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Selection.selection = 3;
             ChangeColorBorder(myExercisePanel);
-            panelOne.Children.Clear();
-            NewExercise newExercise = new NewExercise();
-            panelOne.Children.Add(newExercise);
         }
 
         private void comboBoxMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)

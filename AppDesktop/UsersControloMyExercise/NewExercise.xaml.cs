@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Threading.Tasks;
+using System.Windows.Ink;
 
 namespace AppDesktop.UsersControloMyExercise
 {
@@ -27,41 +29,86 @@ namespace AppDesktop.UsersControloMyExercise
             InitializeComponent();
         }
 
-        private void saveExercise_Click(object sender, RoutedEventArgs e)
+        private void redInkLbl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ////int margin = (int)exerciseInk.Margin.Left;
-            //int width = (int)exerciseInk.ActualWidth;
-            //int height = (int)exerciseInk.ActualHeight;
-            ////render ink to bitmap
-            //RenderTargetBitmap renderBitmap =
-            //new RenderTargetBitmap(width, height, 96d, 96d, PixelFormats.Default);
-            //renderBitmap.Render(exerciseInk);
-            ////save the ink to a memory stream
-            //FileStream stream = new FileStream("file.jpg", FileMode.Create);
-            //BitmapEncoder encoder;
-            //encoder = new BmpBitmapEncoder();
-            //encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
-            //encoder.Save(stream);
-            //stream.Close();
-            //PresentationSource source = PresentationSource.FromVisual(exerciseInk);
-            //RenderTargetBitmap rtb = new RenderTargetBitmap((int)exerciseInk.RenderSize.Width,
-            //      (int)exerciseInk.RenderSize.Height, 96, 96, PixelFormats.Default);
+            exerciseInk.DefaultDrawingAttributes.Color = Colors.Red;
+            colorsStck.Children.Clear();
+            whiteSelectionBrd.Child = redSelectionBrd;
+            colorsStck.Children.Add(blackSelectionBrd);
+            colorsStck.Children.Add(whiteSelectionBrd);
+            colorsStck.Children.Add(blueSelectionBrd);
+            colorsStck.Children.Add(yellowSelectionBrd);
 
-            //VisualBrush sourceBrush = new VisualBrush(exerciseInk);
-            //DrawingVisual drawingVisual = new DrawingVisual();
-            //DrawingContext drawingContext = drawingVisual.RenderOpen();
-            //using (drawingContext)
-            //{
-            //    drawingContext.DrawRectangle(sourceBrush, null, new Rect(new System.Windows.Point(0, 0),
-            //          new System.Windows.Point((int)exerciseInk.RenderSize.Width, (int)exerciseInk.RenderSize.Height)));
-            //}
-            //rtb.Render(drawingVisual);
-            //FileStream stream = new FileStream("file.jpg", FileMode.Create);
-            //BitmapEncoder encoder;
-            //encoder = new BmpBitmapEncoder();
-            //encoder.Frames.Add(BitmapFrame.Create(rtb));
-            //encoder.Save(stream);
-            //stream.Close();
+        }
+
+        private void blackInkLbl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            exerciseInk.DefaultDrawingAttributes.Color = Colors.Black;
+            colorsStck.Children.Clear();
+            whiteSelectionBrd.Child = blackSelectionBrd;
+            colorsStck.Children.Add(whiteSelectionBrd);
+            colorsStck.Children.Add(redSelectionBrd);
+            colorsStck.Children.Add(blueSelectionBrd);
+            colorsStck.Children.Add(yellowSelectionBrd);
+        }
+
+        private void blueInkLbl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            exerciseInk.DefaultDrawingAttributes.Color = Colors.Blue;
+            colorsStck.Children.Clear();
+            whiteSelectionBrd.Child = blueSelectionBrd;
+            colorsStck.Children.Add(blackSelectionBrd);
+            colorsStck.Children.Add(redSelectionBrd);
+            colorsStck.Children.Add(whiteSelectionBrd);
+            colorsStck.Children.Add(yellowSelectionBrd);
+        }
+
+        private void yellowInkLbl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            exerciseInk.DefaultDrawingAttributes.Color = Colors.Yellow;
+            colorsStck.Children.Clear();
+            whiteSelectionBrd.Child = yellowSelectionBrd;
+            colorsStck.Children.Add(blackSelectionBrd);
+            colorsStck.Children.Add(redSelectionBrd);
+            colorsStck.Children.Add(blueSelectionBrd);
+            colorsStck.Children.Add(whiteSelectionBrd);
+        }
+
+        private void EraseIcon_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            colorsStck.Children.Clear();
+            inkStck.Children.Remove(exerciseInk);
+            InkCanvas exerciseInk2 = new InkCanvas();
+            inkStck.Children.Add(exerciseInk2);
+            whiteSelectionBrd.Child = null;
+            colorsStck.Children.Add(blackSelectionBrd);
+            colorsStck.Children.Add(redSelectionBrd);
+            colorsStck.Children.Add(blueSelectionBrd);
+            colorsStck.Children.Add(yellowSelectionBrd);
+        }
+
+        private async void SaveIcon_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var rect = new Rect(exerciseInk.RenderSize);
+            var visual = new DrawingVisual();
+
+            using (var dc = visual.RenderOpen())
+            {
+                dc.DrawRectangle(new VisualBrush(exerciseInk), null, rect);
+            }
+
+            var bitmap = new RenderTargetBitmap(
+                (int)rect.Width, (int)rect.Height, 96, 96, PixelFormats.Default);
+            bitmap.Render(visual);
+
+            var encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(bitmap));
+
+            using (var file = File.OpenWrite("file.jpg"))
+            {
+                encoder.Save(file);
+            }
+            await ApiConnection.ApiConnection.PostImage();
         }
     }
 }
