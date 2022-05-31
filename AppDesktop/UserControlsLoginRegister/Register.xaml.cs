@@ -8,16 +8,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AppDesktop.NewWindows
+namespace AppDesktop.UserControlsLoginRegister
 {
     /// <summary>
-    /// Lógica de interacción para AddTeam.xaml
+    /// Lógica de interacción para Register.xaml
     /// </summary>
-    public partial class AddTeam : Window
+    public partial class Register : UserControl
     {
-        public AddTeam()
+        public Register()
         {
             InitializeComponent();
         }

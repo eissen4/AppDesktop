@@ -52,14 +52,13 @@
         </WrapPanel>
         <StackPanel Grid.Column="1">
             <Label>Nombre del ejercicio</Label>
-            <TextBox></TextBox>
+            <TextBox x:Name="titleTxt"></TextBox>
             <Label>Descripción</Label>
             <TextBox
-  Name="tbMultiLine"
+  Name="descriptionTxt"
   TextWrapping="Wrap"
   AcceptsReturn="True"
-  VerticalScrollBarVisibility="Visible"
->
+  VerticalScrollBarVisibility="Visible">
             </TextBox>
         </StackPanel>        
     </Grid>

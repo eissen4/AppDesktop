@@ -107,8 +107,9 @@ namespace AppDesktop.UsersControloMyExercise
             using (var file = File.OpenWrite("file.jpg"))
             {
                 encoder.Save(file);
+                file.Close();
             }
-            await ApiConnection.ApiConnection.PostImage();
+            await ApiConnection.ApiConnection.PostImage(titleTxt.Text, descriptionTxt.Text);
         }
     }
 }

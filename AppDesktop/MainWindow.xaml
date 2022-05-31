@@ -36,14 +36,14 @@
                 <ComboBox x:Name="comboBoxMenu" Margin="10" SelectionChanged="comboBoxMenu_SelectionChanged" />
             </StackPanel>
                 <Border x:Name="myTeamPanel" Grid.Row="1" CornerRadius="10" Margin="4" Background="LightSeaGreen" MouseLeftButtonUp="Border_MouseLeftButtonUp">
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Background="Transparent">
                         <Image Source="/assets/Icons/team.png" Width="25" Height="25"/>
 
                         <Label Content="MyTeam"></Label>
                     </StackPanel>
                 </Border>
                 <Border x:Name="myMatchesPanel" Grid.Row="2" CornerRadius="10" Margin="4" Background="LightSeaGreen" MouseLeftButtonUp="myMatchesPanel_MouseLeftButtonUp">
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Background="Transparent">
 
                         <Image Source="/assets/Icons/web.jpg" Width="25" Height="25"/>
 
@@ -52,15 +52,15 @@
 
                 </Border>
                 <Border x:Name="myExercisePanel" Grid.Row="3" CornerRadius="10" Margin="4" Background="LightSeaGreen" MouseLeftButtonUp="myExercisePanel_MouseLeftButtonUp">
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Background="Transparent">
                         <Image Source="/assets/Icons/exercise.png" Width="25" Height="25"/>
 
                         <Label Content="MyExercise"></Label>
                     </StackPanel>
                 </Border>
             
-                <Border x:Name="theWorldPanel" Grid.Row="4" CornerRadius="10" Margin="4" Background="LightSeaGreen">
-                    <StackPanel Orientation="Horizontal">
+                <Border x:Name="theWorldPanel" Grid.Row="4" CornerRadius="10" Margin="4" Background="LightSeaGreen" MouseLeftButtonUp="theWorldPanel_MouseLeftButtonUp" >
+                    <StackPanel Orientation="Horizontal" Background="Transparent">
 
                         <Image Source="/assets/Icons/web.jpg" Width="25" Height="25"/>
 

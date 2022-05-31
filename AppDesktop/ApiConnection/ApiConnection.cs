@@ -1,6 +1,8 @@
 ﻿using AppDesktop.Entity;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -41,6 +43,17 @@ namespace AppDesktop.ApiConnection
             List<StatPlayer> stats = JsonSerializer.Deserialize<List<StatPlayer>>(statsJson, ApiMethods.GetJsonOptions());
 
             return stats;
+        }
+
+        internal static async Task<List<Exercise>> GetExercisesAsync()
+        {
+            string uri = URL + "/exercise";
+
+            string exercisesJson = await ApiMethods.Get(uri);
+
+            List<Exercise> exercises = JsonSerializer.Deserialize<List<Exercise>>(exercisesJson, ApiMethods.GetJsonOptions());
+
+            return exercises;
         }
 
         public static async Task<List<Match>> GetPlayerMatchesAsync(string playerId)
@@ -117,9 +130,22 @@ namespace AppDesktop.ApiConnection
 
             string response = await ApiMethods.Post(newMatch, uri);
         }
-        public static async Task PostImage()
+        public static async Task PostImage(string title, string description)
         {
-            await ApiMethods.PostImage();
+            MultipartFormDataContent form = new MultipartFormDataContent();
+
+            string uri = URL + "/exercise";
+
+            Exercise exercise = new Exercise();
+            DateTime date = DateTime.Now;
+
+            var fileStream = new FileStream("file.jpg", FileMode.Open);
+            form.Add(new StringContent(title), "title");
+            form.Add(new StringContent(date.ToString()), "imageUrl");
+            form.Add(new StringContent(description), "description");
+            form.Add(new StreamContent(fileStream), "file", "a.jpg");
+
+            await ApiMethods.PostImage(form, uri);
         }
     }
 }

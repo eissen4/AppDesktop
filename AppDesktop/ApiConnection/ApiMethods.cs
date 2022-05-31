@@ -46,22 +46,12 @@ namespace AppDesktop.ApiConnection
             return await response.Content.ReadAsStringAsync();
         }
 
-        public static async Task<string> PostImage()
+        public static async Task<string> PostImage(MultipartFormDataContent form, string uri)
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(token);
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("multipart/form-data"));
 
-            MultipartFormDataContent form = new MultipartFormDataContent();
-
-            Exercise exercise = new Exercise();
-            DateTime date = DateTime.Now;
-
-            var fileStream = new FileStream("file.jpg", FileMode.Open);
-            form.Add(new StringContent("1"), "title");
-            form.Add(new StringContent(date.ToString()),  "imageUrl");
-            form.Add(new StringContent("1"),  "description");
-            form.Add(new StreamContent(fileStream), "file", "a.jpg");
-            HttpResponseMessage response = await httpClient.PostAsync("http://localhost:3000/exercise", form);
+            HttpResponseMessage response = await httpClient.PostAsync(uri, form);
 
             return await response.Content.ReadAsStringAsync();
         }

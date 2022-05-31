@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="LoginRegister.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MenuPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,7 +19,10 @@
     <Compile Update="MatchesStackPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="NewWindows\AddTeam.xaml.cs">
+    <Compile Update="UserControlsLoginRegister\Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlsLoginRegister\Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlsMyMatch\NewMatch.xaml.cs">
@@ -32,6 +38,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlsMyTeam\PlayerMyTeamItem.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlsTheWorld\TheWorldPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\ComboBoxMenu.xaml.cs">
@@ -58,11 +67,23 @@
     <Compile Update="UserControls\TeamPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UsersControloMyExercise\ExerciseFull.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UsersControloMyExercise\ExerciseItem.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UsersControloMyExercise\Exercises.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UsersControloMyExercise\NewExercise.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="LoginRegister.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -75,7 +96,10 @@
     <Page Update="MatchesStackPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="NewWindows\AddTeam.xaml">
+    <Page Update="UserControlsLoginRegister\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlsLoginRegister\Register.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlsMyMatch\NewMatch.xaml">
@@ -91,6 +115,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlsMyTeam\PlayerMyTeamItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlsTheWorld\TheWorldPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\ComboBoxMenu.xaml">
@@ -115,6 +142,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\TeamPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UsersControloMyExercise\ExerciseFull.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UsersControloMyExercise\ExerciseItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UsersControloMyExercise\Exercises.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UsersControloMyExercise\NewExercise.xaml">

@@ -12,6 +12,7 @@
     <None Remove="assets\Icons\save.png" />
     <None Remove="assets\Icons\team.png" />
     <None Remove="assets\Icons\web.jpg" />
+    <None Remove="assets\Images\logoapp.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +32,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="assets\Icons\web.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\Images\logoapp.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

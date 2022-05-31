@@ -49,7 +49,6 @@ namespace AppDesktop
             //matches = JsonSerializer.Deserialize<List<Match>>(matchJson);
             matches = await ApiConnection.ApiConnection.GetMatchesAsync(Selection.teamSelected._id);
             
-
             matches.ForEach(match =>
             {
                 MatchItem matchItem = new MatchItem()

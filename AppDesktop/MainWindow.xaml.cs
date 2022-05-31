@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AppDesktop.ApiConnection;
 using AppDesktop.UserControls;
+using AppDesktop.UserControlsLoginRegister;
+using AppDesktop.UserControlsTheWorld;
 using AppDesktop.UsersControloMyExercise;
 
 namespace AppDesktop
@@ -28,13 +30,25 @@ namespace AppDesktop
         public MainWindow()
         {
             InitializeComponent();
-            getToken();
+            LoginPanel();
+            RegisterPanel();
         }
 
-        private async Task getToken()
+        private void LoginPanel()
+        {
+            Login login = new Login();
+            panelOne.Children.Add(login);
+        }
+
+        private void RegisterPanel()
+        {
+
+        }
+
+        private async Task getToken(string username, string password)
         {
             ApiMethods apiMethods = new ApiMethods();
-            string token = await ApiConnection.ApiConnection.Login("1", "1");
+            string token = await ApiConnection.ApiConnection.Login(username, password);
             apiMethods.Token = token;
             getTeams();
         }
@@ -45,7 +59,7 @@ namespace AppDesktop
             panelOne.Children.Add(matchesStackPanel);
         }
 
-        private async void getTeams()
+        public async void getTeams()
         {
             teams = await ApiConnection.ApiConnection.GetTeamAsync();
             foreach (Team team in teams)
@@ -61,6 +75,7 @@ namespace AppDesktop
         {
             Selection.selection = 3;
             ChangeColorBorder(myExercisePanel);
+            Exercises exercises = new Exercises(panelOne, panelTwo);
         }
 
         private void comboBoxMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -93,7 +108,14 @@ namespace AppDesktop
             Selection.selection = 2;
             ChangeColorBorder(myMatchesPanel);
             getMatches();
-            panelOne.Children.Clear();
+        }
+
+        private void theWorldPanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Selection.selection = 4;
+            ChangeColorBorder(theWorldPanel);
+            TheWorldPanel newWorldPanel = new TheWorldPanel(panelTwo);
+            panelOne.Children.Add(newWorldPanel);
         }
     }
     public class Selection
