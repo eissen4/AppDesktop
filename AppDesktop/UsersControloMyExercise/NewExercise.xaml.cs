@@ -79,6 +79,7 @@ namespace AppDesktop.UsersControloMyExercise
             colorsStck.Children.Clear();
             inkStck.Children.Remove(exerciseInk);
             InkCanvas exerciseInk2 = new InkCanvas();
+            exerciseInk2.Background = System.Windows.Media.Brushes.Transparent;
             inkStck.Children.Add(exerciseInk2);
             whiteSelectionBrd.Child = null;
             colorsStck.Children.Add(blackSelectionBrd);
@@ -103,13 +104,32 @@ namespace AppDesktop.UsersControloMyExercise
 
             var encoder = new PngBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(bitmap));
-
-            using (var file = File.OpenWrite("file.jpg"))
+            try
             {
-                encoder.Save(file);
-                file.Close();
+                using (var file = File.OpenWrite("file.jpg"))
+                {
+                    encoder.Save(file);
+                    file.Close();
+                }
+                await ApiConnection.ApiConnection.PostImage(titleTxt.Text, descriptionTxt.Text);
+                MessageBox.Show("Guardado correctamente");
+                colorsStck.Children.Clear();
+                inkStck.Children.Remove(exerciseInk);
+                InkCanvas exerciseInk2 = new InkCanvas();
+                exerciseInk2.Background = System.Windows.Media.Brushes.Transparent;
+                inkStck.Children.Add(exerciseInk2);
+                whiteSelectionBrd.Child = null;
+                colorsStck.Children.Add(blackSelectionBrd);
+                colorsStck.Children.Add(redSelectionBrd);
+                colorsStck.Children.Add(blueSelectionBrd);
+                colorsStck.Children.Add(yellowSelectionBrd);
+                titleTxt.Text = "";
+                descriptionTxt.Text = "";
+            } catch
+            {
+                MessageBox.Show("El ejercicio no se ha guardado");
             }
-            await ApiConnection.ApiConnection.PostImage(titleTxt.Text, descriptionTxt.Text);
+            
         }
     }
 }

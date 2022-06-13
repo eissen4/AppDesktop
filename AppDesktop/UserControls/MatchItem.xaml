@@ -11,9 +11,13 @@
             <WrapPanel Orientation="Vertical">
                 <WrapPanel Orientation="Horizontal">
                     <Label Content="Resultado: Equipo1 54 - 45 Equipo2" x:Name="resultlbl"></Label>
-                    <Label Content="X" x:Name="deleteMatchlbl"></Label>
+
+                    <Border Background="MediumPurple" CornerRadius="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label Content="X" x:Name="deleteMatchlbl" MouseLeftButtonUp="deleteMatchlbl_MouseLeftButtonUp" ></Label>
+                    </Border>
                     <Label x:Name="idlbl" Visibility="Hidden"></Label>
                 </WrapPanel>
+                
                 <Label Content="Día = 28/01/2022" x:Name="datelbl"></Label>
             </WrapPanel>
             

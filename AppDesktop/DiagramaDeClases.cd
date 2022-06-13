@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AppDesktop.ApiConnection.ApiConnection">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAEAAAAABCAAAAAAAAAhAAACAAABCAAIAQQAAQAAA=</HashCode>
+      <FileName>ApiConnection\ApiConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppDesktop.ApiConnection.ApiMethods">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAABAAAAAAAAACAQAABgAAIAAAAABAAA=</HashCode>
+      <FileName>ApiConnection\ApiMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppDesktop.ApiConnection.Authentifier">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>ApiConnection\Authentifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppDesktop.ApiConnection.LoginRequest">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAEAAAAAAAACAAAAAgAAAAA=</HashCode>
+      <FileName>ApiConnection\LoginRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppDesktop.ApiConnection.TokenResponse">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>ApiConnection\TokenResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppDesktop.Entity.Exercise">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Entity\Exercise.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppDesktop.Entity.Match">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAABCAAAAAgAQAAABEAAAAQAEAAE=</HashCode>
+      <FileName>Entity\Match.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppDesktop.Entity.Player">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAQAAABAAAQAECAUABAgEAAAAAAEAAA=</HashCode>
+      <FileName>Entity\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppDesktop.Entity.StatPlayer">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAEAAAAFAAAAAAAAQAAAFAAAAAQACAAI=</HashCode>
+      <FileName>Entity\StatPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppDesktop.Entity.NewTeamRequest">
+    <Position X="15" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Team.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

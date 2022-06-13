@@ -58,7 +58,7 @@ namespace AppDesktop
         private void AddPanelNewTeam()
         {
             newPanelOne.Children.Clear();
-            NewTeam newTeam = new NewTeam(saveBtn);
+            NewTeam newTeam = new NewTeam();
             newPanelOne.Children.Add(newTeam);
             newPanelTwo.Children.Clear();
             NewPlayer newPlayer = new NewPlayer();
@@ -68,6 +68,16 @@ namespace AppDesktop
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
+        private void Label_GotFocus(object sender, RoutedEventArgs e)
+        {
+            exitBrd.Background = Brushes.RoyalBlue;
         }
     }
 }

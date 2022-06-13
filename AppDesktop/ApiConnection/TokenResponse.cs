@@ -8,10 +8,5 @@ namespace AppDesktop.ApiConnection
     {
         public string token;
         public string Token { get => token; set => token = value; }
-        
-        public TokenResponse(string newToken)
-        {
-            token = newToken;
-        }
     }
 }

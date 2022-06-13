@@ -7,7 +7,7 @@
         
         xmlns:local="clr-namespace:AppDesktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="1200">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -39,7 +39,7 @@
                     <StackPanel Orientation="Horizontal" Background="Transparent">
                         <Image Source="/assets/Icons/team.png" Width="25" Height="25"/>
 
-                        <Label Content="MyTeam"></Label>
+                        <Label Content="MyTeam" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
                     </StackPanel>
                 </Border>
                 <Border x:Name="myMatchesPanel" Grid.Row="2" CornerRadius="10" Margin="4" Background="LightSeaGreen" MouseLeftButtonUp="myMatchesPanel_MouseLeftButtonUp">
@@ -47,7 +47,7 @@
 
                         <Image Source="/assets/Icons/web.jpg" Width="25" Height="25"/>
 
-                        <Label Content="MyMatches"></Label>
+                        <Label Content="MyMatches" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
                     </StackPanel>
 
                 </Border>
@@ -55,7 +55,7 @@
                     <StackPanel Orientation="Horizontal" Background="Transparent">
                         <Image Source="/assets/Icons/exercise.png" Width="25" Height="25"/>
 
-                        <Label Content="MyExercise"></Label>
+                        <Label Content="MyExercise" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
                     </StackPanel>
                 </Border>
             
@@ -64,7 +64,7 @@
 
                         <Image Source="/assets/Icons/web.jpg" Width="25" Height="25"/>
 
-                        <Label Content="TheWorld"></Label>
+                        <Label Content="TheWorld" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
                     </StackPanel>
                 </Border>
                 <Border Grid.Row="6" CornerRadius="10" Margin="4" Background="LightSeaGreen">
@@ -76,13 +76,19 @@
             
         </Border>
         <Border  Margin="6" Background="LightBlue" CornerRadius="10" Grid.Column="1" Grid.Row="1">
-            <StackPanel x:Name="panelOne">
-            </StackPanel>
+            <ScrollViewer>
+                <StackPanel x:Name="panelOne">
+                </StackPanel>
+            </ScrollViewer>
+            
         </Border>
         <Border  Margin="6" Background="LightBlue" CornerRadius="10" Grid.Column="2" Grid.Row="1">
-            <StackPanel x:Name="panelTwo">
-                
-            </StackPanel>
+            <ScrollViewer>
+                <StackPanel x:Name="panelTwo">
+
+                </StackPanel>
+            </ScrollViewer>
+            
         </Border>
     </Grid>
 </Window>

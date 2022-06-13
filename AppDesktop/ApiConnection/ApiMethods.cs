@@ -35,6 +35,26 @@ namespace AppDesktop.ApiConnection
 
             return await response.Content.ReadAsStringAsync();
         }
+
+        public static async Task<string> Delete(string uri)
+        {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(token);
+
+            HttpResponseMessage response = await httpClient.DeleteAsync(uri);
+            return await response.Content.ReadAsStringAsync();
+        }
+
+        public static async Task<string> PostRegister(Register register, string uri)
+        {
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var json = JsonSerializer.Serialize(register);
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await httpClient.PostAsync(uri, stringContent);
+
+            return await response.Content.ReadAsStringAsync();
+        }
+
         public static async Task<string> PostLogin(Authentifier authentifier, string uri)
         {
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

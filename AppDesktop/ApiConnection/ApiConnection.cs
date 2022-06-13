@@ -18,10 +18,37 @@ namespace AppDesktop.ApiConnection
             string uri = URL + "/login";
 
             Authentifier authentifier = new Authentifier(username, password);
+            try
+            {
+                string tokenResponse = await ApiMethods.PostLogin(authentifier, uri);
+                TokenResponse token = JsonSerializer.Deserialize<TokenResponse>(tokenResponse, ApiMethods.GetJsonOptions());
 
-            string token = await ApiMethods.PostLogin(authentifier, uri);
+                return token.Token;
+            } catch
+            {
+                return null;
+            }
+            
+        }
+        public static async Task<Register> Register(string username, string password, string email)
+        {
+            string uri = URL + "/register";
 
-            return token;
+            Register register = new Register(username, password, email);
+
+            
+            try
+            {
+                string registerResponseJson = await ApiMethods.PostRegister(register, uri);
+
+                Register registerResponse = JsonSerializer.Deserialize<Register>(registerResponseJson, ApiMethods.GetJsonOptions());
+
+                return registerResponse;
+            } catch
+            {
+                return null;
+            }
+            
         }
 
         public static async Task<List<Team>> GetTeamAsync()
@@ -48,6 +75,17 @@ namespace AppDesktop.ApiConnection
         internal static async Task<List<Exercise>> GetExercisesAsync()
         {
             string uri = URL + "/exercise";
+
+            string exercisesJson = await ApiMethods.Get(uri);
+
+            List<Exercise> exercises = JsonSerializer.Deserialize<List<Exercise>>(exercisesJson, ApiMethods.GetJsonOptions());
+
+            return exercises;
+        }
+
+        internal static async Task<List<Exercise>> GetExercisesWorldAsync(string keys)
+        {
+            string uri = URL + "/exercise/getExerciseSearched/" + keys;
 
             string exercisesJson = await ApiMethods.Get(uri);
 
@@ -146,6 +184,13 @@ namespace AppDesktop.ApiConnection
             form.Add(new StreamContent(fileStream), "file", "a.jpg");
 
             await ApiMethods.PostImage(form, uri);
+        }
+
+        public static async Task DeleteMatchAsync(string match)
+        {
+            string uri = URL + "/match/" + match;
+
+            string response = await ApiMethods.Delete(uri);
         }
     }
 }

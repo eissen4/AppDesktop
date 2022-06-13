@@ -5,10 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppDesktop.UsersControloMyExercise"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="500">
+             d:DesignHeight="800" d:DesignWidth="500">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -21,17 +20,25 @@
             </Grid.Background>
         </Grid>
         <Border Margin="10">
-            <Image x:Name="exerciseImage" Source="http://localhost:3000/uploads/30-05-2022 16-20-35627a8c71b64204faaa0f1d79a.jpg"></Image>
+            <Image x:Name="exerciseImage" Source="http://localhost:3000/uploads/02-06-2022 20-49-18627a8c71b64204faaa0f1d79a.jpg"></Image>
         </Border>
-        <Border Grid.Column="1" CornerRadius="10" Background="LightSeaGreen" Margin="10">
+        <Border Grid.Row="1" CornerRadius="10" Background="LightSeaGreen" Margin="10">
             <StackPanel x:Name="exerciseDataStck"  Orientation="Vertical">
-                <Label x:Name="titleLbl">Título</Label>
+                <Label x:Name="titleLbl" FontWeight="Bold">Título</Label>
                 <Label x:Name="userLbl"></Label>
-                <Label x:Name="valueLbl">Valoración</Label>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="heartBtn" Click="heartBtn_Click">
+                        <Image x:Name="heartImage" Source="http://localhost:3000/uploads/heart_empty.png" Width="20" HorizontalAlignment="Left" MouseRightButtonUp="heartImage_MouseRightButtonUp"/>
+                    </Button>
+                    
+                    <Label x:Name="valueLbl">50</Label>
+                </StackPanel>
                 <Label x:Name="descriptionLbl">Descripción:</Label>
             </StackPanel>
         </Border>
-        
+        <Border Margin="10" Grid.Row="1">
+            <Image x:Name="exerciseImage2" Source=""></Image>
+        </Border>
         <StackPanel x:Name="exerciseCommentStck" Grid.Row="1" Grid.ColumnSpan="2" Margin="10"></StackPanel>
     </Grid>
 </UserControl>

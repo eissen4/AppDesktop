@@ -5,15 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppDesktop"
         mc:Ignorable="d"
-        Title="LoginRegister" Height="450" Width="800">
-    <Grid>
-        <StackPanel Margin="10">
+        Title="LoginRegister" Height="600" Width="800">
+    <Grid Background="Aquamarine">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Source="/assets/Images/logoapp.png" Grid.ColumnSpan="2" Margin="10"/>
+
+        <StackPanel Margin="10" Grid.Row="1">
+            <Label FontSize="20" HorizontalAlignment="Center" FontStyle="Normal" FontWeight="Bold">LOGIN</Label>
             <Label Margin="10">Usuario:</Label>
             <TextBox x:Name="usernameTxt" Margin="10"></TextBox>
             <Label Margin="10">Contraseña:</Label>
             <TextBox x:Name="passwordTxt" Margin="10"></TextBox>
             <Button x:Name="sendBtn" Margin="10" Click="sendBtn_Click">Enviar</Button>
         </StackPanel>
-        
+        <StackPanel Margin="5" Grid.Row="1" Grid.Column="1">
+            <Label FontSize="20" HorizontalAlignment="Center" FontStyle="Normal" FontWeight="Bold">REGISTER</Label>
+            <Label Margin="5">Usuario:</Label>
+            <TextBox x:Name="usernameRegisterTxt" Margin="5"></TextBox>
+            <Label Margin="10">Contraseña:</Label>
+            <TextBox x:Name="passwordRegisterTxt" Margin="5"></TextBox>
+            <Label Margin="10">Email:</Label>
+            <TextBox x:Name="emailRegisterTxt" Margin="5"></TextBox>
+            <Label Margin="10">Nombre de tu primer equipo:</Label>
+            <TextBox x:Name="teamRegisterTxt" Margin="5"></TextBox>
+            <Button x:Name="emailRegisterBtn" Margin="10" Click="emailRegisterBtn_Click">Enviar</Button>
+        </StackPanel>
     </Grid>
 </Window>

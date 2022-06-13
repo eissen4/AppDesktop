@@ -51,10 +51,11 @@ namespace AppDesktop
             
             matches.ForEach(match =>
             {
-                MatchItem matchItem = new MatchItem()
+                MatchItem matchItem = new MatchItem(newPanelOne, newPanelTwo)
                 {
                     ResultMatchlbl = "Resultado: Equipo1" + " " + match.scoreOne.ToString() + " - " + match.ScoreTwo.ToString() + " " + match.opponent.ToString(),
-                    Datelbl = match.Date.ToString()                
+                    Datelbl = match.Date.ToString(),
+                    Idlbl = match._id.ToString()
                 };
                 matchItem.MouseLeftButtonUp += (sender, e) => MatchItem_MouseLeftButtonUp(sender, e, match._Id.ToString());
                 newPanelOne.Children.Add(matchItem);

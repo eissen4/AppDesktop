@@ -19,7 +19,7 @@ namespace AppDesktop.UserControls
     public partial class NewTeam : UserControl
     {
         Button newTeamSave;
-        public NewTeam(Button saveBtn)
+        public NewTeam()
         {
             InitializeComponent();
             newTeamSave = saveBtn;

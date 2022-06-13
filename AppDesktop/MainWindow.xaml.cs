@@ -29,20 +29,22 @@ namespace AppDesktop
         List<Team> teams;
         public MainWindow()
         {
-            InitializeComponent();
-            LoginPanel();
-            RegisterPanel();
+            if (ApiMethods.token == null)
+            {
+                LoginPanel();
+                this.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                InitializeComponent();
+                getTeams();
+            }
         }
 
         private void LoginPanel()
         {
-            Login login = new Login();
-            panelOne.Children.Add(login);
-        }
-
-        private void RegisterPanel()
-        {
-
+            LoginRegister login = new LoginRegister();
+            login.Show();
         }
 
         private async Task getToken(string username, string password)
@@ -81,6 +83,11 @@ namespace AppDesktop
         private void comboBoxMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Selection.teamSelected = teams[comboBoxMenu.SelectedIndex];
+            Selection.selection = 1;
+            ChangeColorBorder(myTeamPanel);
+            panelOne.Children.Clear();
+            TeamPanel teamPanel = new TeamPanel(panelTwo);
+            panelOne.Children.Add(teamPanel);
         }
 
         private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -114,7 +121,7 @@ namespace AppDesktop
         {
             Selection.selection = 4;
             ChangeColorBorder(theWorldPanel);
-            TheWorldPanel newWorldPanel = new TheWorldPanel(panelTwo);
+            TheWorldPanel newWorldPanel = new TheWorldPanel(panelOne, panelTwo);
             panelOne.Children.Add(newWorldPanel);
         }
     }
@@ -122,6 +129,8 @@ namespace AppDesktop
     {
         public static int selection { get; set; }
         public static Team teamSelected { get; set; }
+        public static String username { get; set; }
+        public static String password { get; set; }
     }
 }
 

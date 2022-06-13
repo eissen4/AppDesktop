@@ -24,11 +24,69 @@ namespace AppDesktop
         }
         private async void sendBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (!CheckEmptyBoxLogin())
+                return;
+            else
+            {
+                ApiMethods apiMethods = new ApiMethods();
+                string token = await ApiConnection.ApiConnection.Login(usernameTxt.Text, passwordTxt.Text);
+                if (token != null)
+                {
+                    apiMethods.Token = token;
+                    MainWindow mainWindow = new MainWindow();
+                    this.Close();
+                    mainWindow.Show();
+                }
+                if (token == null)
+                    MessageBox.Show("Usuario o contraseño incorrectos");
+            }
+            
+        }
+
+        private async void emailRegisterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //if (!CheckEmptyBoxRegister())
+              //  return;
+            //else
+            //{
+                Register register = await ApiConnection.ApiConnection.Register(usernameRegisterTxt.Text, passwordRegisterTxt.Text, emailRegisterTxt.Text);
+                //if(register != null)
+                //{
+                    string token = await ApiConnection.ApiConnection.Login(usernameRegisterTxt.Text, passwordRegisterTxt.Text);
             ApiMethods apiMethods = new ApiMethods();
-            string token = await ApiConnection.ApiConnection.Login(usernameTxt.Text, passwordTxt.Text);
             apiMethods.Token = token;
+            await ApiConnection.ApiConnection.PostTeamAsync("Benidorm");
             MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+                    this.Close();
+                    mainWindow.Show();
+                //} else
+                //{
+                  //  MessageBox.Show("El usuario ya existe");
+               // }
+           // }
+        }
+        private Boolean CheckEmptyBoxLogin()
+        {
+            if (
+                usernameTxt.Text == ""
+                || passwordTxt.Text == "")
+            {
+                MessageBox.Show("Algún campo vacío");
+                return false;
+            }
+            return true;
+        }
+        private Boolean CheckEmptyBoxRegister()
+        {
+            //if (usernameRegisterTxt.Text == ""
+             //   || passwordRegisterTxt.Text == ""
+             //   || emailRegisterTxt.Text == ""
+             //   || teamRegisterTxt.Text == "")
+            //{
+             //   MessageBox.Show("Algún campo vacío o incorrecto");
+             //   return false;
+            //}
+            return true;
         }
     }
 }

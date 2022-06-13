@@ -13,8 +13,9 @@
         </Grid.RowDefinitions>
         <Border Margin="10" CornerRadius="10" Background="LightSeaGreen"></Border>
         <StackPanel Margin="10" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label VerticalAlignment="Center">Buscador:</Label>
-            <TextBox Margin="10,0,0,0"></TextBox>
+            <Button x:Name="buscadorBtn" VerticalAlignment="Center" Background="DarkSeaGreen" Click="buscadorBtn_Click">Buscador</Button>
+
+            <TextBox x:Name="buscadorTxtB" Margin="10,0,0,0" Width="350"></TextBox>
         </StackPanel>
         <StackPanel x:Name="exercisesSearchedStck" Grid.Row="1"></StackPanel>
             

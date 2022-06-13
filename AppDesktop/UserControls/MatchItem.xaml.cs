@@ -18,11 +18,32 @@ namespace AppDesktop.UserControls
     /// </summary>
     public partial class MatchItem : UserControl
     {
-        public MatchItem()
+        StackPanel newPanelOne;
+        StackPanel newPanelTwo;
+        public MatchItem(StackPanel panelOne, StackPanel panelTwo)
         {
             InitializeComponent();
+            newPanelOne = panelOne;
+            newPanelTwo = panelTwo;
         }
         public string ResultMatchlbl { set => resultlbl.Content = value; get => resultlbl.Content.ToString(); }
         public string Datelbl { set => datelbl.Content = value; get => datelbl.Content.ToString(); }
+        public string Idlbl { set => idlbl.Content = value; get => idlbl.Content.ToString(); }
+
+        private async void deleteMatchlbl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                await ApiConnection.ApiConnection.DeleteMatchAsync(Idlbl);
+                newPanelOne.Children.Clear();
+                newPanelTwo.Children.Clear();
+                MatchesStackPanel matchesStackPanel = new MatchesStackPanel(newPanelOne, newPanelTwo);
+                MessageBox.Show("Se ha borrado el partido...");
+            } catch 
+            {
+                MessageBox.Show("NO se ha podido borrar correctemante el partido");
+            }
+            
+        }
     }
 }

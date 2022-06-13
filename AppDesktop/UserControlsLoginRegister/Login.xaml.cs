@@ -19,9 +19,11 @@ namespace AppDesktop.UserControlsLoginRegister
     /// </summary>
     public partial class Login : UserControl
     {
-        public Login()
+        StackPanel newPanelOne;
+        public Login(StackPanel panelOne)
         {
             InitializeComponent();
+            newPanelOne = panelOne;
         }
 
         private async void sendBtn_Click(object sender, RoutedEventArgs e)
